@@ -1,0 +1,55 @@
+#中国区用户推荐最小配置 - Surge Tech Community
+#https://community.nssurge.com/d/1214
+
+
+[General]
+skip-proxy = 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
+exclude-simple-hostnames = true
+internet-test-url = http://taobao.com/
+proxy-test-url = http://www.apple.com/
+test-timeout = 2
+dns-server = 223.5.5.5, 119.29.29.29, system
+# encrypted-dns-server = https://223.5.5.5/ // 除非当地 ISP 有严重的 DNS 污染问题，否则没必要开启 DoH，传统 DNS 的性能最优，网络异常后恢复速度最快
+wifi-assist = true
+ipv6 = false // 如无特殊需求不应开启 IPv6，目前网络环境下 IPv6 只会带来问题。
+
+
+[Proxy]
+节点_VMESS = vmess, yuming.com, 443, username=UUID, sni=VPS域名, ws=true, ws-path=/1234abc路径, vmess-aead=true, tls=true
+节点_Trojan = trojan, yuming.com, 443, password=密码
+
+
+[Proxy Group]
+# 节点选项
+Proxy = select, 节点_VMESS, 节点_Trojan
+YouTube = select, 节点_VMESS, 节点_Trojan
+Twitter = select, 节点_VMESS, 节点_Trojan
+Telegram = select, 节点_VMESS, 节点_Trojan
+Spotify = select, 节点_VMESS, 节点_Trojan
+
+[Rule]
+# YouTube
+RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list, YouTube
+# Twitter
+RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Twitter.list, Twitter
+# Telegram
+RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list, Telegram
+# Spotify
+RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Music/Spotify.list, Spotify
+
+RULE-SET,https://github.com/Blankwonder/surge-list/raw/master/blocked.list,Proxy
+RULE-SET,https://github.com/Blankwonder/surge-list/raw/master/cn.list,DIRECT
+DOMAIN,apps.apple.com,Proxy
+DOMAIN-SUFFIX,ls.apple.com,DIRECT // Apple Maps
+DOMAIN-SUFFIX,store.apple.com,DIRECT // Apple Store Online
+RULE-SET,SYSTEM,Proxy
+RULE-SET,https://github.com/Blankwonder/surge-list/raw/master/apple.list,Proxy
+# 以下规则将触发本地 DNS 解析
+RULE-SET,LAN,DIRECT
+GEOIP,CN,DIRECT
+FINAL,Proxy,dns-failed
+
+
+#指定 Surge iOS 在 Wi-Fi SSID 下暂时挂起
+[SSID Setting]
+"替换SSID名称" suspend=true
