@@ -25,12 +25,13 @@ ipv6 = false // 如无特殊需求不应开启 IPv6，目前网络环境下 IPv6
 
 
 [Proxy Group]
+# 代理服务商提供的代理列表订阅示例
+Proxy = select, policy-path=机场订阅地址
 # 节点选项
-Proxy = select, 节点_VMESS, 节点_Trojan
-YouTube = select, 节点_VMESS, 节点_Trojan
-Twitter = select, 节点_VMESS, 节点_Trojan
-Telegram = select, 节点_VMESS, 节点_Trojan
-Spotify = select, 节点_VMESS, 节点_Trojan
+YouTube = select, 节点_VMESS, 节点_Trojan, policy-path=机场订阅地址
+Twitter = select, 节点_VMESS, 节点_Trojan, policy-path=机场订阅地址
+Telegram = select, 节点_VMESS, 节点_Trojan, policy-path=机场订阅地址
+Spotify = select, 节点_VMESS, 节点_Trojan, policy-path=机场订阅地址
 
 
 [Rule]
