@@ -52,7 +52,7 @@ YouTube  	= select, 节点_VMESS, 节点_Trojan,  include-other-group=Proxy
 Telegram 	= select, 节点_VMESS, 节点_Trojan,  include-other-group=Proxy
 Twitter  	= select, 节点_VMESS, 节点_Trojan,  include-other-group=Proxy
 Spotify  	= select, 节点_VMESS, 节点_Trojan,  include-other-group=Proxy
-国外媒体		= select, 节点_VMESS, 节点_Trojan,  include-other-group=Proxy
+国外媒体	= select, 节点_VMESS, 节点_Trojan,  include-other-group=Proxy
 
 [Rule]
 
