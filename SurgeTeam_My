@@ -20,8 +20,8 @@ ipv6 = false // 如无特殊需求不应开启 IPv6，目前网络环境下 IPv6
 
 
 [Proxy]
-节点_VMESS = vmess, yuming.com, 443, username=UUID, sni=VPS域名, ws=true, ws-path=/1234abc路径, vmess-aead=true, tls=true
-节点_Trojan = trojan, yuming.com, 443, password=密码
+节点_VMESS = vmess, VPS的域名, 443, username=UUID, sni=VPS的域名, ws=true, ws-path=/1234abc路径, vmess-aead=true, tls=true
+节点_Trojan = trojan, VPS的域名, 443, password=密码, sni=VPS的域名
 
 
 [Proxy Group]
