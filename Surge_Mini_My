@@ -25,7 +25,7 @@ hijack-dns = 8.8.8.8:53, 8.8.4.4:53
 # > 从 /etc/hosts 读取 DNS 记录
 read-etc-hosts = true
 # > Wi-Fi助理
-wifi-assist = true
+wifi-assist = false
 # > GeoIP数据库
 geoip-maxmind-url = https://github.com/Hackl0us/GeoIP2-CN/raw/release/Country.mmdb
 
